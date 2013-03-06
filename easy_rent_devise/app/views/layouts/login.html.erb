@@ -17,9 +17,25 @@
 
   <!-- User-generated css -->
   <style>
-    
-  </style>
+	@media (min-width: 450px){
+		.ui-field-contain .ui-controlgroup-controls {width: 100%; display: inline-block;}
+	}
+  
+	@media all and (min-width: 450px){
+		.ui-field-contain label.ui-input-text  { vertical-align: top; display: inline-block; width: 20%; margin: 0 2% 0 0 }
+		.ui-field-contain input.ui-input-text, 
+		.ui-field-contain textarea.ui-input-text, 
+		.ui-field-contain .ui-input-search { width: 100%; display: inline-block; } 
+		.ui-hide-label input.ui-input-text, 
+		.ui-hide-label textarea.ui-input-text, 
+		.ui-hide-label .ui-input-search { width: 100%; }
+		.ui-input-search input.ui-input-text { width: 99%; /*echos rule from above*/ }
+	}
 
+	element.style {
+		padding: 15%;
+	}
+  </style>
   <!-- User-generated js -->
   <script>
 
