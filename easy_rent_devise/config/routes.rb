@@ -1,6 +1,12 @@
 EasyRentDevise::Application.routes.draw do
   
-  devise_for :users, controllers: { sessions: "user_sessions", registrations: "user_registrations", unlocks: "user_unlocks" }
+    devise_for :users, controllers: {
+        sessions: "user_sessions",
+        registrations: "user_registrations",
+        unlocks: "user_unlocks",
+        confirmations: "user_confirmations",
+        passwords: "user_passwords"
+    }
   
   devise_scope :user do
     root :to => 'user_sessions#new'
