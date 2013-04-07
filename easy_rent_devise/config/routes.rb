@@ -15,8 +15,9 @@ EasyRentDevise::Application.routes.draw do
     #get '/users/sign_out' => 'user_sessions#destroy'  NOTE: uncommenting this line solves the issue of 'No route matches [GET] "/users/sign_out"' but then you have to refresh the login page to be able to successfully login
   end
   
-  match '/home', to: 'home#show'
+  get '/home', to: 'home#show'
 	
-  match '/home/pay_rent', to: 'rent_payment#new'
+  get '/home/pay_rent', to: 'rent_payment#new'
+  post '/home/pay_rent', to: 'rent_payment#create'
   
 end

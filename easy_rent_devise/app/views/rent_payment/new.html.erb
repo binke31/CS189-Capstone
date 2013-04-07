@@ -1,51 +1,51 @@
 <!-- Pay Rent (R) -->
   <div data-role="content" style="padding: 10px">
-    <form action="">
+    <%= form_for(@rentPayment, :url => { action: "create" }) do |f| %>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="currency"> Payment Amount </label>
-        <input name="" id="currency" placeholder="$ 0.00" value="" type="text">
+        <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="$ 0.00" value="" type="text">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="textinput6"> Pay on this date </label>
-        <input name="" id="textinput6" placeholder="" value="" type="date">
+        <input name="rentPayment[paymentDate]" id="paymentDate" placeholder="" value="" type="date">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
         <label for="textinput9"> First Name </label>
-        <input name="FirstName" id="textinput9" placeholder="First Name" value=""
+        <input name="rentPayment[firstName]" id="firstName" placeholder="" value=""
          type="text">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
         <label for="textinput10"> Last Name </label>
-        <input name="LastName" id="textinput10" placeholder="Last Name" value=""
+        <input name="rentPayment[lastName]" id="lastName" placeholder="" value=""
          type="text">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="textinput7"> Routing Number </label>
-        <input name="" id="textinput7" placeholder="" value="" type="text">
+        <input name="rentPayment[routingNumber]" id="routingNumber" placeholder="" value="" type="text">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="textinput8"> Account Number </label>
-        <input name="" id="textinput8" placeholder="" value="" type="text">
+        <input name="rentPayment[accountNumber]" id="accountNumber" placeholder="" value="" type="text">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-type="horizontal">
         <legend> Account Type: </legend>
-		<input id="radio3" name="" value="checking" type="radio">
-        <label for="radio3"> Checking </label>
-        <input id="radio4" name="" value="savings" type="radio">
-        <label for="radio4"> Savings </label>
+		<input id="checking" name="rentPayment[accountType]" value="checking" type="radio">
+        <label for="checking"> Checking </label>
+        <input id="savings" name="rentPayment[accountType]" value="savings" type="radio">
+        <label for="savings"> Savings </label>
         </fieldset>
       </div>
 	  <div id="checkboxes1" data-role="fieldcontain">
@@ -56,5 +56,5 @@
         </fieldset>
       </div>
       <input type="submit" data-theme="b" value="Submit Payment" data-mini="true">
-    </form>
+    <% end %>
   </div>
