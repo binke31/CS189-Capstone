@@ -16,5 +16,7 @@ EasyRentDevise::Application.routes.draw do
   end
   
   match '/home', to: 'home#show'
+	
+  match '/home/pay_rent', to: 'rent_payment#new'
   
 end
