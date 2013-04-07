@@ -41,8 +41,8 @@
   <script>
 
     $(function() {
-        
-    });
+		$("#currency").maskMoney({symbol:'$ '});
+	})
 
   </script>
 </head>
@@ -50,9 +50,9 @@
 	
 	<div data-role="page" data-theme="b" id="page4">
 	      <div data-theme="b" data-role="header">
-			  <a data-role="button" data-theme="b" href="/users/sign_out" data-method="delete" rel="nofollow"
+			  <a data-role="button" data-theme="b" href="/home"
 			   data-icon="back" data-iconpos="left" class="ui-btn-left">
-			      Logout
+			      Back
 			  </a>
 	          <a id="settings" data-role="button" data-inline="true" data-theme="b"
 	           href="#page9" data-icon="gear" data-iconpos="notext" class="ui-btn-right">

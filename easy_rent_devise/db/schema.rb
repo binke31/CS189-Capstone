@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401024032) do
+ActiveRecord::Schema.define(:version => 20130407211002) do
+
+  create_table "rent_payments", :force => true do |t|
+    t.integer  "paymentAmount"
+    t.integer  "routingNumber"
+    t.integer  "accountNumber"
+    t.datetime "paymentDate"
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "accountType"
+    t.string   "savePayment"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
