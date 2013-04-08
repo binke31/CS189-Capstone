@@ -3,8 +3,8 @@
     <%= form_for(@rentPayment, :url => { action: "create" }) do |f| %>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
-        <label for="currency"> Payment Amount </label>
-        <input name="rentPayment[paymentAmount]" id="currency" placeholder="$ 0.00" value="" type="text">
+        <label for="paymentAmount"> Payment Amount </label>
+        <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="$ 0.00" value="" type="text">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
