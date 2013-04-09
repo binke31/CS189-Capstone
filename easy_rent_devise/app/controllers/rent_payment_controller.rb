@@ -12,7 +12,7 @@ class RentPaymentController < ApplicationController
 	  # params[:rentPayment] should have all the form input
 	  @rentPayment = RentPayment.new(params[:rentPayment])
 	  @rentPayment.save
-	  redirect_to "/home/"
+	  redirect_to "/home/", notice: "Rent payment successfully submitted!"
   end
 
 end
