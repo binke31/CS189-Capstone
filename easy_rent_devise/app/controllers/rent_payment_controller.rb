@@ -4,9 +4,9 @@ class RentPaymentController < ApplicationController
 
   #GET /home/pay_rent
   def new
-	 @rentPayment = RentPayment.new
+    @rentPayment = RentPayment.new
   end
-	
+  
   #POST /home/pay_rent
   def create
 	  # params[:rentPayment] should have all the form input

@@ -20,4 +20,7 @@ EasyRentDevise::Application.routes.draw do
   get '/home/pay_rent', to: 'rent_payment#new'
   post '/home/pay_rent', to: 'rent_payment#create'
   
+  get '/home/maintenance_request', to: 'maintenance_request#new'
+  post '/home/maintenance_request', to: 'maintenance_request#create'
+  
 end
