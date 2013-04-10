@@ -10,10 +10,8 @@
   <%= javascript_include_tag :application %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-  <!--%= stylesheet_link_tag "my.css" %-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-  <!--%= javascript_include_tag "my.js" %-->
 
   <!-- User-generated css -->
   <style>
@@ -47,7 +45,7 @@
 </head>
 <body>
   <!-- Login -->
-  <div data-role="page" data-theme="b" id="page3">
+  <div data-role="page" data-theme="b" id="page3" data-url="<%= request.path %>">
       <div data-theme="b" data-role="header" data-position="fixed">
           <h1>
               EasyRent
