@@ -4,7 +4,7 @@
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="paymentAmount"> Payment Amount </label>
-        <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="$ 0.00" value="" type="text">
+        <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="0.00" value="" type="text" pattern="[0-9$,.]*">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
@@ -30,13 +30,13 @@
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="routingNumber"> Routing Number </label>
-        <input name="rentPayment[routingNumber]" id="routingNumber" placeholder="" value="" type="text">
+        <input name="rentPayment[routingNumber]" id="routingNumber" placeholder="" value="" type="text" pattern="[0-9]*">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="accountNumber"> Account Number </label>
-        <input name="rentPayment[accountNumber]" id="accountNumber" placeholder="" value="" type="text">
+        <input name="rentPayment[accountNumber]" id="accountNumber" placeholder="" value="" type="text" pattern="[0-9]*">
         </fieldset>
       </div>
       <div data-role="fieldcontain">
