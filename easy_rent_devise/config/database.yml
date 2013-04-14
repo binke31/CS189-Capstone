@@ -14,9 +14,9 @@ development:
   reconnect: false
   database: easy_rent_devise_development
   pool: 5
-  username: 
-  password: 
-  host: localhost
+  username:  
+  password: digimax1 
+  host: localhost 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

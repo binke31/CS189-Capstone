@@ -1,7 +1,7 @@
 <!--Maintenance Request (M) -->
 
 <div data-role="content">
-    <form action="">
+    <%= form_for(@mainRequest, :url => { action: "create" }) do |f| %>
         <div data-role="fieldcontain">
             <fieldset data-role="controlgroup">
                 <label for="textarea1">
@@ -15,12 +15,12 @@
                 <legend> Permission to enter unit? </legend>
                 <input id="radio1" name="mainRequest[permissionToEnter]" value="Yes" type="radio">
                 <label for="radio1"> Yes </label>
-                <input id="radio2" name="mainRequest[permissionToEnter]" value="no" type="radio">
+                <input id="radio2" name="mainRequest[permissionToEnter]" value="No" type="radio">
                 <label for="radio2"> No </label>
             </fieldset>
         </div>
         <input type="submit" data-theme="b" value="Submit Request" data-mini="true">
-    </form>
+<%end%>
 </div>
 <div data-theme="a" data-role="footer" data-position="fixed">
     <h3>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407213350) do
+ActiveRecord::Schema.define(:version => 20130414220115) do
 
   create_table "controllers", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -21,12 +21,11 @@ ActiveRecord::Schema.define(:version => 20130407213350) do
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
-    t.string   "maintenanceRequest"
+    t.string   "permissionToEnter"
     t.datetime "maintenanceRequestDate"
     t.string   "writtenRequest"
     t.string   "userFirstName"
     t.string   "userLastName"
-    t.string   "saveMaintenanceRequest"
   end
 
   create_table "rent_payments", :force => true do |t|

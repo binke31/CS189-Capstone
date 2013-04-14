@@ -1,6 +1,6 @@
 class MaintenanceRequest < ActiveRecord::Base
 
-	attr_accessible :maintenanceRequest, :maintenanceRequestDate, :writtenRequest,
+	attr_accessible :maintenanceRequestDate, :writtenRequest,
 	 				:userFirstName, :userLastName, :permissionToEnter 
 
 end
