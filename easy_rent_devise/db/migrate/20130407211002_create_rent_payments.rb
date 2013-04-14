@@ -1,7 +1,7 @@
 class CreateRentPayments < ActiveRecord::Migration
   def change
     create_table :rent_payments do |t|
-      t.integer :paymentAmount
+      t.string :paymentAmount
 	  t.integer :routingNumber
 	  t.integer :accountNumber
 	  t.datetime :paymentDate

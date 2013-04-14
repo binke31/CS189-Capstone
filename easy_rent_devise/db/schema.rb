@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130407211002) do
 
   create_table "rent_payments", :force => true do |t|
-    t.integer  "paymentAmount"
+    t.string   "paymentAmount"
     t.integer  "routingNumber"
     t.integer  "accountNumber"
     t.datetime "paymentDate"
