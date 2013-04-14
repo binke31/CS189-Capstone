@@ -11,10 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407211002) do
+ActiveRecord::Schema.define(:version => 20130414220115) do
+
+  create_table "controllers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "maintenance_requests", :force => true do |t|
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "permissionToEnter"
+    t.datetime "maintenanceRequestDate"
+    t.string   "writtenRequest"
+    t.string   "userFirstName"
+    t.string   "userLastName"
+  end
 
   create_table "rent_payments", :force => true do |t|
-    t.string   "paymentAmount"
+    t.integer  "paymentAmount"
     t.integer  "routingNumber"
     t.integer  "accountNumber"
     t.datetime "paymentDate"

@@ -1,0 +1,30 @@
+<!--Maintenance Request (M) -->
+
+<div data-role="content">
+    <%= form_for(@mainRequest, :url => { action: "create" }) do |f| %>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="textarea1">
+                    Please describe the problem:
+                </label>
+                <input name="mainRequest[writtenRequest]" id="writtenRequest" placeholder="1000 characters or less please" value="">
+            </fieldset>
+        </div>
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend> Permission to enter unit? </legend>
+                <input id="radio1" name="mainRequest[permissionToEnter]" value="Yes" type="radio">
+                <label for="radio1"> Yes </label>
+                <input id="radio2" name="mainRequest[permissionToEnter]" value="No" type="radio">
+                <label for="radio2"> No </label>
+            </fieldset>
+        </div>
+        <input type="submit" data-theme="b" value="Submit Request" data-mini="true">
+<%end%>
+</div>
+<div data-theme="a" data-role="footer" data-position="fixed">
+    <h3>
+        Foo Tang Clan © 2013
+    </h3>
+</div>
+</div>
