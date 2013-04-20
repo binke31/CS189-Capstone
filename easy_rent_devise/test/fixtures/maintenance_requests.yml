@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  writtenRequest: "My toilet is clogged. And it's pretty bad."
+  permissionToEnter: "Yes"
+  userFirstName:
+  userLastName: 
+  maintenanceRequestDate: 2013-04-15 19:35:10
+
+two:
+  id: 2
+  writtenRequest: 
+  permissionToEnter: 
+  userFirstName:
+  userLastName: 
+  maintenanceRequestDate: 
