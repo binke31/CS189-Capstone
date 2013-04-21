@@ -1,7 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  paymentAmount: 
+  id: 1
+  paymentAmount: "1,000.00"
+  routingNumber: 123456789
+  accountNumber: 12345678
+  paymentDate: 2013-04-15 19:30:00
+  firstName: "Chris"
+  lastName: "Horuk"
+  accountType: "checking"
+  savePayment: 
 
 two:
+  id: 2
   paymentAmount: 
+  routingNumber: 
+  accountNumber: 
+  paymentDate:
+  firstName: 
+  lastName: 
+  accountType: 
+  savePayment: 

@@ -1,5 +1,9 @@
 class UserRegistrationsController < Devise::RegistrationsController
   
-  layout 'login'
+  layout 'settingsPage'
+    
+  def edit
+    super
+  end
   
 end
