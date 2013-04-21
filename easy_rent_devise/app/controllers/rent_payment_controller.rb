@@ -18,5 +18,9 @@ class RentPaymentController < ApplicationController
 	  @rentPayment.save
 	  redirect_to "/home/", notice: "Rent payment successfully submitted!"
   end
+	
+	def show
+		
+	end
 
 end

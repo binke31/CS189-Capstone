@@ -14,8 +14,8 @@ development:
   reconnect: false
   database: easy_rent_devise_development
   pool: 5
-  username: root
-  password:  
+  username: capstone
+  password:  capstone123
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
