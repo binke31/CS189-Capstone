@@ -1,2 +1,4 @@
 # Get rid of DS Stores!
 .DS_Store
+# Stop submitting the database.yml file from config folder
+database.yml
