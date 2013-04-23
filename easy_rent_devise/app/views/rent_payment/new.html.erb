@@ -1,42 +1,65 @@
 <!-- Pay Rent (R) -->
   <div data-role="content" style="padding: 10px">
     <%= form_for(@rentPayment, :url => { action: "create" }) do |f| %>
+    <%= f.error_messages header_message: "Invalid Rent Payment!", message: "You'll need to fix the following fields:" %>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="paymentAmount"> Payment Amount </label>
-        <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="0.00" value="" type="text" pattern="[0-9$,.]*">
+        <% if @rentPayment.paymentAmount %>
+          <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="0.00" value="<%= @rentPayment.paymentAmount %>" type="text" pattern="[0-9$,.]*">
+        <% else %>
+          <input name="rentPayment[paymentAmount]" id="paymentAmount" placeholder="0.00" value="" type="text" pattern="[0-9$,.]*">
+        <% end %>
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="paymentDate"> Pay on this date </label>
-        <input name="rentPayment[paymentDate]" id="paymentDate" placeholder="" value="" type="date">
+        <% if @rentPayment.paymentDate %>
+          <input name="rentPayment[paymentDate]" id="paymentDate" placeholder="" value="<%= @rentPayment.paymentDate %>" type="date">
+        <% else %>
+          <input name="rentPayment[paymentDate]" id="paymentDate" placeholder="" value="" type="date">
+        <% end %>
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
         <label for="firstName"> First Name </label>
-        <input name="rentPayment[firstName]" id="firstName" placeholder="" value=""
-         type="text">
+        <% if @rentPayment.lastName %>
+          <input name="rentPayment[firstName]" id="firstName" placeholder="" value="<%= @rentPayment.firstName %>" type="text">
+        <% else %>
+          <input name="rentPayment[firstName]" id="firstName" placeholder="" value="" type="text">
+        <% end %>
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup">
         <label for="lastName"> Last Name </label>
-        <input name="rentPayment[lastName]" id="lastName" placeholder="" value=""
-         type="text">
+        <% if @rentPayment.lastName %>
+          <input name="rentPayment[lastName]" id="rentPayment_lastName" placeholder="" value="<%= @rentPayment.lastName %>" type="text">
+        <% else %>
+          <input name="rentPayment[lastName]" id="rentPayment_lastName" placeholder="" value="" type="text">
+        <% end %>
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="routingNumber"> Routing Number </label>
-        <input name="rentPayment[routingNumber]" id="routingNumber" placeholder="" value="" type="text" pattern="[0-9]*">
+        <% if @rentPayment.routingNumber %>
+          <input name="rentPayment[routingNumber]" id="routingNumber" placeholder="" value="<%= @rentPayment.routingNumber %>" type="text" pattern="[0-9]*">
+        <% else %>
+          <input name="rentPayment[routingNumber]" id="routingNumber" placeholder="" value="" type="text" pattern="[0-9]*">
+        <% end %>
         </fieldset>
       </div>
       <div data-role="fieldcontain">
         <fieldset data-role="controlgroup" data-mini="true">
         <label for="accountNumber"> Account Number </label>
-        <input name="rentPayment[accountNumber]" id="accountNumber" placeholder="" value="" type="text" pattern="[0-9]*">
+        <% if @rentPayment.accountNumber %>
+          <input name="rentPayment[accountNumber]" id="accountNumber" placeholder="" value="<%= @rentPayment.accountNumber %>" type="text" pattern="[0-9]*">
+        <% else %>
+          <input name="rentPayment[accountNumber]" id="accountNumber" placeholder="" value="" type="text" pattern="[0-9]*">
+        <% end %>
         </fieldset>
       </div>
       <div data-role="fieldcontain">
