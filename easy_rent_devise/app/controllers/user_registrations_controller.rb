@@ -2,17 +2,19 @@ class UserRegistrationsController < Devise::RegistrationsController
   
   layout 'settingsPage'
     
+  #GET /settings/account_settings  
   def edit
     @user = current_user
   end
 
+  #PUT /settings/account_settings
   def update_user
     @user = User.find(current_user.id)
     if params[:user][:password] != "" && params[:user][:email] != ""
       if @user.update_attributes(params[:user])
         # Sign in the user by passing validation in case his password changed
         sign_in @user, :bypass => true
-        redirect_to user_root_path, notice: "Account Settings Updated Successfully!"
+        redirect_to user_root_path, notice: "Account settings updated successfully!"
       else
         render "edit"
       end
@@ -20,7 +22,7 @@ class UserRegistrationsController < Devise::RegistrationsController
       if @user.update_attributes(email: params[:user][:email])
         # Sign in the user by passing validation in case his password changed
         sign_in @user, :bypass => true
-        redirect_to user_root_path, notice: "Account Settings Updated Successfully!"
+        redirect_to user_root_path, notice: "Account settings updated successfully!"
       else
         render "edit"
       end
@@ -28,7 +30,7 @@ class UserRegistrationsController < Devise::RegistrationsController
       if @user.update_attributes(password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
         # Sign in the user by passing validation in case his password changed
         sign_in @user, :bypass => true
-        redirect_to user_root_path, notice: "Account Settings Updated Successfully!"
+        redirect_to user_root_path, notice: "Account settings updated successfully!"
       else
         render "edit"
       end

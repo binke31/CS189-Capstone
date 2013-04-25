@@ -12,9 +12,9 @@ EasyRentDevise::Application.routes.draw do
     root :to => 'user_sessions#new'
     #delete '/logout' => 'user_sessions#destroy'
     get '/login' => 'user_sessions#new'
-    get '/home/account_settings' => 'user_registrations#edit', :as => 'edit_user_registration'
+    get '/settings/account_settings' => 'user_registrations#edit', :as => 'edit_user_registration'
     #put '/home/account_settings' => 'devise/registrations#update', :as => 'user_registration'
-    put '/home/account_settings' => 'user_registrations#update_user', :as => 'update_user_registration'
+    put '/settings/account_settings' => 'user_registrations#update_user', :as => 'update_user_registration'
     get 'home', to: 'home#show', as: :user_root
   end
     

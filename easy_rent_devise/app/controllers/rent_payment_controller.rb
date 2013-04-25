@@ -16,16 +16,15 @@ class RentPaymentController < ApplicationController
       #date = params[:rentPayment][:paymentDate].split("/")
       #@rentPayment.paymentDate = "20#{date[2]}/#{date[0]}/#{date[1]} #{time.hour}:#{time.min}:#{time.sec} #{time.zone}".to_datetime
 	  if @rentPayment.valid?
-        @rentPayment.save
-        redirect_to "/home/", notice: "Rent payment successfully submitted!"
-      else
-          render :new
-      #  redirect_to "/home/pay_rent", alert: @rentPayment.errors.full_messages.to_sentence
-      end
+      @rentPayment.save
+      redirect_to "/home/", notice: "Rent payment successfully submitted!"
+    else
+      render :new
+    end
   end
 	
 	def show
-		
+		# stub
 	end
 
 end

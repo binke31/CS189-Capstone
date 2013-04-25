@@ -9,10 +9,10 @@ class MaintenanceRequestController < ApplicationController
 
     #POST /home/maintenance_request
     def create
- 	  # params[:maintenanceRequest] contains all request information
- 	  @mainRequest = MaintenanceRequest.new(params[:mainRequest])
- 	  @mainRequest.maintenanceRequestDate = Time.now
- 	  @mainRequest.save
- 	  redirect_to "/home/"
+ 	    # params[:maintenanceRequest] contains all request information
+ 	    @mainRequest = MaintenanceRequest.new(params[:mainRequest])
+ 	    @mainRequest.maintenanceRequestDate = Time.now
+ 	    @mainRequest.save
+ 	    redirect_to "/home/", notice: "Maintenance request successfully submitted!"
     end
 end 
