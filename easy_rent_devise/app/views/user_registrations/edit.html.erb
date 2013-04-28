@@ -1,0 +1,32 @@
+<div data-role="content">
+	<%= form_for(@user, :url => { :action => "update_user" } ) do |f| %>
+	<%= f.error_messages header_message: "Invalid Account Settings!", message: "You'll need to fix the following fields:" %>
+	  <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="user_password">
+				  New Password <br />
+				  <em>(leave blank unless you wish to change)</em>
+                </label>
+                <input name="user[password]" id="user_password" type="password">
+            </fieldset>
+      </div>
+	  <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+                <label for="user_password_confirmation">
+				  New Password Confirmation
+                </label>
+                <input name="user[password_confirmation]" id="user_password_confirmation" type="password">
+            </fieldset>
+      </div>
+	  <div data-role="fieldcontain">
+		<fieldset data-role="controlgroup">
+			<label for="user_email">
+				New Email <br />
+				  <em>(leave blank unless you wish to change)</em>
+			</label>
+			<input name="user[email]" id="user_email" type="email">
+		</fieldset>
+	  </div>
+	  <input type="submit" data-theme="b" value="Update Account Settings" data-mini="true">
+	<% end %>
+</div>
