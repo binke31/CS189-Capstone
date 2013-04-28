@@ -3,3 +3,13 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      rent_payment:
+        paymentAmount: "Payment Amount"
+        routingNumber: "Routing Number"
+        accountNumber: "Account Number"
+        paymentDate: "Payment Date"
+        firstName: "First Name"
+        lastName: "Last Name"
+        accountType: "Account Type"
