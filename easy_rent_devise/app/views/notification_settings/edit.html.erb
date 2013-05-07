@@ -1,0 +1,74 @@
+<!-- Notification Settings (S) -->
+<div data-role="content">
+	<h3>
+	  How would you like to receive notifications?
+	</h3>
+  <%= form_for(@notificationSettings, :url => { action: "update" }) do |f| %>
+    <%= f.error_messages header_message: "Invalid notification settings!", message: "You'll need to fix the following fields:" %>
+	  <div data-role="fieldcontain">
+	      <label for="notificationSettings[phoneNumber]">
+	          Phone Number (for text messages)
+	      </label>
+	      <input name="notificationSettings[phoneNumber]" id="phoneNumber" placeholder="(123) 456-7890" value="" type="text">
+	  </div>
+	  <div data-role="fieldcontain">
+	      <label for="notificationSettings[textMessages]">
+	          Text Messages:
+	      </label><br />
+	      <select name="notificationSettings[textMessages]" id="textMessages" data-theme="" data-role="slider">
+					<% if @notificationSettings.textMessages == "off" %>
+	          <option value="off" selected="selected">
+	              Off
+	          </option>
+	          <option value="on">
+	              On
+	          </option>
+					<% else %>
+						<option value="off">
+	              Off
+	          </option>
+	          <option value="on" selected="selected">
+	              On
+	          </option>
+					<% end %>
+	      </select>
+	  </div>
+	  <div data-role="fieldcontain">
+	      <label for="notificationSettings[emails]">
+	          Emails:
+	      </label><br />
+	      <select name="notificationSettings[emails]" id="emails" data-theme="" data-role="slider">
+	          <option value="off">
+	              Off
+	          </option>
+	          <option value="on">
+	              On
+	          </option>
+	      </select>
+	  </div>
+	  <div id="checkboxes5" data-role="fieldcontain">
+	      <fieldset data-role="controlgroup" data-type="vertical">
+	          <legend>
+	              I would like to get:
+	          </legend>
+	          <input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox">
+	          <label for="checkbox5">
+	              Rent reminder (day before)
+	          </label>
+	          <input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox">
+	          <label for="checkbox6">
+	              Rent reminder (week before)
+	          </label>
+	          <input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox">
+	          <label for="checkbox7">
+	              General notifications
+	          </label>
+	          <input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox">
+	          <label for="checkbox8">
+	              Updates on maintenance request
+	          </label>
+	      </fieldset>
+	  </div>
+	  <input value="Save Changes" type="submit">
+	<% end %>
+</div>

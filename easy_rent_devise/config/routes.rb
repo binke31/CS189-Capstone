@@ -34,5 +34,8 @@ EasyRentDevise::Application.routes.draw do
   get '/home/maintenance_log', to: 'maintenance_log#show'
     
   get '/settings', to: 'settings_home#show'
+  
+  get '/settings/notification_settings', to: 'notification_settings#edit'
+  put '/settings/notification_settings', to: 'notification_settings#update'
 
 end
