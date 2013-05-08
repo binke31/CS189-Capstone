@@ -37,5 +37,7 @@ EasyRentDevise::Application.routes.draw do
   
   get '/settings/notification_settings', to: 'notification_settings#edit'
   put '/settings/notification_settings', to: 'notification_settings#update'
+  
+  get '/home/notifications', to: 'notification#show'
 
 end

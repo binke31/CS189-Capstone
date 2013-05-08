@@ -9,8 +9,10 @@ one:
     email: chris@horukmail.com
 # corresponds to password of 12345678
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 7
 
 two:
     id: 2
     email: rluhar1990@gmail.com
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 7

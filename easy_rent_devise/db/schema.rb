@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507211319) do
+ActiveRecord::Schema.define(:version => 20130508042137) do
 
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20130507211319) do
     t.string   "maintenanceUpdates"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rent_payments", :force => true do |t|
@@ -69,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20130507211319) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.datetime "rentDueDate"
+    t.integer  "rentDueDay"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
