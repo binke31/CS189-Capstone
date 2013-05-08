@@ -9,7 +9,11 @@
 	      <label for="notificationSettings[phoneNumber]">
 	          Phone Number (for text messages)
 	      </label>
-	      <input name="notificationSettings[phoneNumber]" id="phoneNumber" placeholder="(123) 456-7890" value="" type="text">
+				<% if @notificationSettings.phoneNumber != "0" %>
+	      	<input name="notificationSettings[phoneNumber]" id="phoneNumber" value="<%= @notificationSettings.phoneNumber %>" type="text">
+				<% else %>
+					<input name="notificationSettings[phoneNumber]" id="phoneNumber" placeholder="(123) 456-7890" type="text">
+				<% end %>
 	  </div>
 	  <div data-role="fieldcontain">
 	      <label for="notificationSettings[textMessages]">
@@ -38,12 +42,21 @@
 	          Emails:
 	      </label><br />
 	      <select name="notificationSettings[emails]" id="emails" data-theme="" data-role="slider">
-	          <option value="off">
+					<% if @notificationSettings.emails == "off" %>
+	          <option value="off" selected="selected">
 	              Off
 	          </option>
 	          <option value="on">
 	              On
 	          </option>
+					<% else %>
+						<option value="off">
+	              Off
+	          </option>
+	          <option value="on" selected="selected">
+	              On
+	          </option>
+					<% end %>
 	      </select>
 	  </div>
 	  <div id="checkboxes5" data-role="fieldcontain">
@@ -51,19 +64,35 @@
 	          <legend>
 	              I would like to get:
 	          </legend>
-	          <input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox">
+						<% if @notificationSettings.rentOneDay == "on" %>
+	          	<input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox" checked="checked">
+						<% else %>
+							<input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox">
+						<% end %>
 	          <label for="checkbox5">
 	              Rent reminder (day before)
 	          </label>
-	          <input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox">
+						<% if @notificationSettings.rentOneWeek == "on" %>
+	          	<input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox" checked="checked">
+						<% else %>
+							<input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox">
+						<% end %>
 	          <label for="checkbox6">
 	              Rent reminder (week before)
 	          </label>
-	          <input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox">
+						<% if @notificationSettings.general == "on" %>
+	          	<input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox" checked="checked">
+						<% else %>
+							<input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox">
+						<% end %>
 	          <label for="checkbox7">
 	              General notifications
 	          </label>
-	          <input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox">
+						<% if @notificationSettings.maintenanceUpdates == "on" %>
+	          	<input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox" checked="checked">
+						<% else %>
+							<input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox">
+						<% end %>
 	          <label for="checkbox8">
 	              Updates on maintenance request
 	          </label>
