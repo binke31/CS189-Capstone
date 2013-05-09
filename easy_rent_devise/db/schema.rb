@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508042137) do
+ActiveRecord::Schema.define(:version => 20130508074609) do
 
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20130508042137) do
     t.string   "maintenanceUpdates"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.datetime "sendNextRentAt"
+    t.string   "rentInterval"
   end
 
   create_table "notifications", :force => true do |t|

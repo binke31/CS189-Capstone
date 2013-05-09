@@ -10,10 +10,12 @@ one:
   phoneNumber: "0"
   textMessages: "off"
   emails: "off"
-  rentOneDay: "off"
-  rentOneWeek: "off"
+  rentOneDay: "on"
+  rentOneWeek: "on"
   general: "off"
   maintenanceUpdates: "off"
+  sendNextRentAt: 2013-05-08
+  rentInterval: "day"
   
 two:
   id: 2
@@ -21,7 +23,9 @@ two:
   phoneNumber: "0"
   textMessages: "off"
   emails: "off"
-  rentOneDay: "off"
+  rentOneDay: "on"
   rentOneWeek: "off"
   general: "off"
   maintenanceUpdates: "off"
+  sendNextRentAt: 2013-05-09
+  rentInterval: "day"
