@@ -9,7 +9,7 @@ class NotificationSettingsController < ApplicationController
 	
 	#PUT /settings/notification_settings
 	def update
-	  @notificationSettings = NotificationSettings.where(user_id: current_user.id).first
+	  @notificationSettings = current_user.notification_settings
 	  if @notificationSettings.update_attributes(params[:notificationSettings])
 	    redirect_to user_root_path, notice: "Notification settings successfully updated!"
 	  else
