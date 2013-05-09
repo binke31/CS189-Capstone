@@ -1,5 +1,5 @@
 class Notification < ActiveRecord::Base
   
-  attr_accessible :notificationMessage
+  attr_accessible :message
   
 end

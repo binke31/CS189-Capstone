@@ -17,7 +17,7 @@ module ApplicationHelper
   end
     
   def matchesNotificationPath?(path)
-    if path == settings_notification_settings_path
+    if path == settings_notification_settings_path || path == home_notifications_path
       true
     else
       false

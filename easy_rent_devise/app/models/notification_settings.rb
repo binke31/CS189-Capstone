@@ -1,8 +1,10 @@
 class NotificationSettings < ActiveRecord::Base
   
+  belongs_to :user
+  
   after_initialize :init
   
-  attr_accessible :userID, :phoneNumber, :textMessages, :emails, :rentOneDay, :rentOneWeek, :general, :maintenanceUpdates, :sendNextRentAt, :rentInterval
+  attr_accessible :phoneNumber, :textMessages, :emails, :rentOneDay, :rentOneWeek, :general, :maintenanceUpdates, :sendNextRentAt, :rentInterval
   
   def init
     self.textMessages ||= "off"

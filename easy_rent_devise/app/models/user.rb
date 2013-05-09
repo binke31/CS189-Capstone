@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  
+  has_many :rent_notifications, dependent: :destroy
+  has_one :notification_settings, dependent: :destroy
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

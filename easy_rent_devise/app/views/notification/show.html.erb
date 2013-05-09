@@ -4,12 +4,17 @@
         <li data-role="list-divider" role="heading">
             Rent
         </li>
-        <li data-theme="c">
-            Rent is due tomorrow. (2/28/13)
-        </li>
-        <li data-theme="c">
-            Rent is due in one week. (2/21/13)
-        </li>
+				<% if current_user.rent_notifications.size > 0 %>
+					<% current_user.rent_notifications.each do |notification| %>
+						<li data-theme="c">
+		            <%= notification.message %>
+		        </li>
+					<% end %>
+				<% else %>
+					<li data-theme="c">
+	            No rent notifications.
+	        </li>
+				<% end %>
         <li data-role="list-divider" role="heading">
             Maintenance
         </li>
