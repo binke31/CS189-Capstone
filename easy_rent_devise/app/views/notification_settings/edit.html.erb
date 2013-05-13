@@ -1,103 +1,107 @@
 <!-- Notification Settings (S) -->
 <div data-role="content">
 	<h3>
-	  How would you like to receive notifications?
+		How would you like to receive notifications?
 	</h3>
-  <%= form_for(@notificationSettings, :url => { action: "update" }) do |f| %>
-    <%= f.error_messages header_message: "Invalid notification settings!", message: "You'll need to fix the following fields:" %>
-	  <div data-role="fieldcontain">
-	      <label for="notificationSettings[phoneNumber]">
-	          Phone Number (for text messages)
-	      </label>
-				<% if @notificationSettings.phoneNumber != "0" %>
-	      	<input name="notificationSettings[phoneNumber]" id="phoneNumber" value="<%= @notificationSettings.phoneNumber %>" type="text">
+	<%= form_for(@notificationSettings, :url => { action: "update" }) do |f| %>
+	<%= f.error_messages header_message: "Invalid notification settings!", message: "You'll need to fix the following fields:" %>
+		<div data-role="fieldcontain">
+			<label for="notificationSettings[phoneNumber]">
+				Phone Number (for text messages)
+			</label>
+			<% if @notificationSettings.phoneNumber != "" %>
+				<input name="notificationSettings[phoneNumber]" id="phoneNumber" value="<%= @notificationSettings.phoneNumber %>" type="number">
+			<% else %>
+				<input name="notificationSettings[phoneNumber]" id="phoneNumber" placeholder="123 456 7890" type="number">
+			<% end %>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="notificationSettings[textMessages]">
+				Text Messages:
+			</label><br />
+			<select name="notificationSettings[textMessages]" id="textMessages" data-theme="" data-role="slider">
+			<% if @notificationSettings.textMessages == "off" %>
+				<option value="off" selected="selected">
+					Off
+				</option>
+				<option value="on">
+					On
+				</option>
+			<% else %>
+				<option value="off">
+					Off
+				</option>
+				<option value="on" selected="selected">
+					On
+				</option>
+			<% end %>
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="notificationSettings[emails]">
+				Emails:
+			</label><br />
+			<select name="notificationSettings[emails]" id="emails" data-theme="" data-role="slider">
+			<% if @notificationSettings.emails == "off" %>
+				<option value="off" selected="selected">
+					Off
+				</option>
+				<option value="on">
+					On
+				</option>
+			<% else %>
+				<option value="off">
+					Off
+				</option>
+				<option value="on" selected="selected">
+					On
+				</option>
+			<% end %>
+			</select>
+		</div>
+		<div id="checkboxes5" data-role="fieldcontain">
+			<fieldset data-role="controlgroup" data-type="vertical">
+				<legend>
+					I would like to get:
+				</legend>
+				<% if @notificationSettings.rentOneDay == "on" %>
+					<input type="hidden" name="notificationSettings[rentOneDay]" value="off">
+					<input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox" checked="checked">
 				<% else %>
-					<input name="notificationSettings[phoneNumber]" id="phoneNumber" placeholder="(123) 456-7890" type="text">
+					<input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox">
 				<% end %>
-	  </div>
-	  <div data-role="fieldcontain">
-	      <label for="notificationSettings[textMessages]">
-	          Text Messages:
-	      </label><br />
-	      <select name="notificationSettings[textMessages]" id="textMessages" data-theme="" data-role="slider">
-					<% if @notificationSettings.textMessages == "off" %>
-	          <option value="off" selected="selected">
-	              Off
-	          </option>
-	          <option value="on">
-	              On
-	          </option>
-					<% else %>
-						<option value="off">
-	              Off
-	          </option>
-	          <option value="on" selected="selected">
-	              On
-	          </option>
-					<% end %>
-	      </select>
-	  </div>
-	  <div data-role="fieldcontain">
-	      <label for="notificationSettings[emails]">
-	          Emails:
-	      </label><br />
-	      <select name="notificationSettings[emails]" id="emails" data-theme="" data-role="slider">
-					<% if @notificationSettings.emails == "off" %>
-	          <option value="off" selected="selected">
-	              Off
-	          </option>
-	          <option value="on">
-	              On
-	          </option>
-					<% else %>
-						<option value="off">
-	              Off
-	          </option>
-	          <option value="on" selected="selected">
-	              On
-	          </option>
-					<% end %>
-	      </select>
-	  </div>
-	  <div id="checkboxes5" data-role="fieldcontain">
-	      <fieldset data-role="controlgroup" data-type="vertical">
-	          <legend>
-	              I would like to get:
-	          </legend>
-						<% if @notificationSettings.rentOneDay == "on" %>
-	          	<input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox" checked="checked">
-						<% else %>
-							<input id="checkbox5" name="notificationSettings[rentOneDay]" data-theme="c" type="checkbox">
-						<% end %>
-	          <label for="checkbox5">
-	              Rent reminder (day before)
-	          </label>
-						<% if @notificationSettings.rentOneWeek == "on" %>
-	          	<input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox" checked="checked">
-						<% else %>
-							<input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox">
-						<% end %>
-	          <label for="checkbox6">
-	              Rent reminder (week before)
-	          </label>
-						<% if @notificationSettings.general == "on" %>
-	          	<input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox" checked="checked">
-						<% else %>
-							<input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox">
-						<% end %>
-	          <label for="checkbox7">
-	              General notifications
-	          </label>
-						<% if @notificationSettings.maintenanceUpdates == "on" %>
-	          	<input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox" checked="checked">
-						<% else %>
-							<input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox">
-						<% end %>
-	          <label for="checkbox8">
-	              Updates on maintenance request
-	          </label>
-	      </fieldset>
-	  </div>
-	  <input value="Save Changes" type="submit">
+				<label for="checkbox5">
+					Rent reminder (day before)
+				</label>
+				<% if @notificationSettings.rentOneWeek == "on" %>
+					<input type="hidden" name="notificationSettings[rentOneWeek]" value="off">
+					<input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox" checked="checked">
+				<% else %>
+					<input id="checkbox6" name="notificationSettings[rentOneWeek]" data-theme="c" type="checkbox">
+				<% end %>
+				<label for="checkbox6">
+					Rent reminder (week before)
+				</label>
+				<% if @notificationSettings.general == "on" %>
+					<input type="hidden" name="notificationSettings[general]" value="off">
+					<input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox" checked="checked">
+				<% else %>
+					<input id="checkbox7" name="notificationSettings[general]" data-theme="c" type="checkbox">
+				<% end %>
+				<label for="checkbox7">
+					General notifications
+				</label>
+				<% if @notificationSettings.maintenanceUpdates == "on" %>
+					<input type="hidden" name="notificationSettings[maintenanceUpdates]" value="off">
+					<input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox" checked="checked">
+				<% else %>
+					<input id="checkbox8" name="notificationSettings[maintenanceUpdates]" data-theme="c" type="checkbox">
+				<% end %>
+				<label for="checkbox8">
+					Updates on maintenance request
+				</label>
+			</fieldset>
+		</div>
+		<input value="Save Changes" type="submit">
 	<% end %>
 </div>

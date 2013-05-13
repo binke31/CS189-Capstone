@@ -7,25 +7,29 @@
 one:
   id: 1
   user_id: 1
-  phoneNumber: "0"
+  phoneNumber: ""
   textMessages: "off"
-  emails: "on"
-  rentOneDay: "on"
-  rentOneWeek: "on"
+  emails: "off"
+  rentOneDay: "off"
+  rentOneWeek: "off"
   general: "off"
   maintenanceUpdates: "off"
-  sendNextRentAt: 2013-05-08
-  rentInterval: "day"
+  sendNextRentAt: NULL
+  rentInterval: ""
+  created_at: 2013-05-01
+  updated_at: 2013-05-01
   
 two:
   id: 2
   user_id: 2
-  phoneNumber: "0"
+  phoneNumber: ""
   textMessages: "off"
   emails: "on"
   rentOneDay: "on"
   rentOneWeek: "off"
   general: "off"
   maintenanceUpdates: "off"
-  sendNextRentAt: 2013-05-09
-  rentInterval: "day"
+  sendNextRentAt: NULL
+  rentInterval: ""
+  created_at: 2013-05-01
+  updated_at: 2013-05-01
