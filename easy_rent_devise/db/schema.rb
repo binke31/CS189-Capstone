@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509063528) do
+ActiveRecord::Schema.define(:version => 20130515001331) do
 
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20130509063528) do
     t.string   "writtenRequest"
     t.string   "userFirstName"
     t.string   "userLastName"
+    t.string   "status"
+    t.integer  "user_id"
   end
 
   create_table "notification_settings", :force => true do |t|
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130509063528) do
     t.string   "savePayment"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
