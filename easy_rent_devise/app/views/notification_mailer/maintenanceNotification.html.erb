@@ -6,7 +6,7 @@
   <body>
     <em>This is an automatically generated email. Do not reply to this message.</em>
 		
-		<p>The status of your maintenance request that was submitted on <b><%= @maintenanceRequest.maintenanceRequestDate.strftime("%m/%d/%y") %></b> by <%= @maintenanceRequest.userFirstName %> has changed to <b><%= @maintenanceRequest.status %></b>.</p>
+		<p>The status of your maintenance request that was submitted on <b><%= @maintenanceRequest.maintenanceRequestDate.strftime("%m/%d/%y") %></b> by <%= @maintenanceRequest.userFirstName + " " + @maintenanceRequest.userLastName %> has changed to <b><%= @maintenanceRequest.status %></b>.</p>
 		
   </body>
 </html>
