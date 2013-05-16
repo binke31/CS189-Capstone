@@ -17,6 +17,7 @@ class RentPaymentController < ApplicationController
       #@rentPayment.paymentDate = "20#{date[2]}/#{date[0]}/#{date[1]} #{time.hour}:#{time.min}:#{time.sec} #{time.zone}".to_datetime
 	  if @rentPayment.valid?
       @rentPayment.save
+      sendPaymentToAppfolio(current_user.email, @rentPayment)
       redirect_to "/home/", notice: "Rent payment successfully submitted!"
     else
       render :new
@@ -26,5 +27,20 @@ class RentPaymentController < ApplicationController
 	def show
 		# stub
 	end
+  
+  def sendPaymentToAppfolio(email, payment)
+    newPayment = CapstonePayment.create({
+      :email => email,
+      :use_saved_info => false,
+      :payment_amount => payment.paymentAmount,
+      :payment_date => payment.paymentDate,
+      :first_name => payment.firstName,
+      :last_name => payment.lastName,
+      :account_type => payment.accountType,
+      :routing_number => payment.routingNumber.to_s,
+      :account_number => payment.accountNumber.to_s,
+      :save_payment => payment.savePayment
+    })
+  end
 
 end

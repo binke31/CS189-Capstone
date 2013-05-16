@@ -17,6 +17,9 @@ gem 'whenever', require: false
 # for Twilio
 gem 'twilio-ruby'
 
+# for ActiveResource
+gem 'activeresource', :require => 'active_resource'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
