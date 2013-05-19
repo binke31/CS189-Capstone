@@ -6,4 +6,9 @@ class NotificationMailer < ActionMailer::Base
     mail(to: email, subject: "Rent Notification")
   end
   
+  def maintenanceNotification(email, id)
+    @maintenanceRequest = MaintenanceRequest.find(id)
+    mail(to: email, subject: "Maintenance Notification: " + @maintenanceRequest.maintenanceRequestDate.strftime("%m/%d/%y"))
+  end
+  
 end
