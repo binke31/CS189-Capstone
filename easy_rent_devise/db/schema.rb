@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515001331) do
+ActiveRecord::Schema.define(:version => 20130520004851) do
 
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
@@ -78,12 +78,9 @@ ActiveRecord::Schema.define(:version => 20130515001331) do
     t.integer  "failed_attempts",        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
-    t.datetime "rentDueDate"
     t.integer  "rentDueDay"
+    t.string   "firstName"
+    t.string   "lastName"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

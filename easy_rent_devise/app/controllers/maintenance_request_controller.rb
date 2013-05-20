@@ -11,9 +11,24 @@ class MaintenanceRequestController < ApplicationController
     def create
  	    # params[:maintenanceRequest] contains all request information
  	    @mainRequest = current_user.maintenance_requests.new(params[:mainRequest])
- 	    @mainRequest.maintenanceRequestDate = Time.now
- 	    @mainRequest.status = "Submitted"
+ 	    @mainRequest.attributes = {
+ 	      maintenanceRequestDate: Time.now,
+ 	      status: "Submitted",
+ 	      userFirstName: current_user.firstName,
+ 	      userLastName: current_user.lastName
+ 	    }
  	    @mainRequest.save
  	    redirect_to "/home/", notice: "Maintenance request successfully submitted!"
     end
+    
+    #GET /home/maintenance_log
+    def index
+      # stub
+    end
+    
+    #GET /home/maintenance_log/<id>
+    def show
+      @mainRequest = MaintenanceRequest.find(params[:id])
+    end
+    
 end 

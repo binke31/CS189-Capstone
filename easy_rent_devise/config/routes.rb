@@ -30,8 +30,8 @@ EasyRentDevise::Application.routes.draw do
   
   get '/home/maintenance_request', to: 'maintenance_request#new'
   post '/home/maintenance_request', to: 'maintenance_request#create'
-    
-  get '/home/maintenance_log', to: 'maintenance_log#show'
+  get '/home/maintenance_log', to: 'maintenance_request#index'
+  get '/home/maintenance_log/:id', to: 'maintenance_request#show'
     
   get '/settings', to: 'settings_home#show'
   

@@ -1,0 +1,35 @@
+<!-- Maintenance Log (M) -->
+<div data-role="content">
+	<ul data-role="listview" data-divider-theme="b" data-inset="true">
+		<li data-role="list-divider" role="heading">
+			Maintenance Log
+		</li>
+		
+		<% if current_user.maintenance_requests.size > 0 %>
+		
+			<% current_user.maintenance_requests.each do |mRequest| %>
+				<% if mRequest.status == "Fixed" %>
+					<li data-theme="f">
+						<a href="/home/maintenance_log/<%= mRequest.id %>" data-transition="slide">
+							Fixed <%= mRequest.maintenanceRequestDate.strftime("%m/%d/%y") %>
+						</a>
+					</li>
+				<% else %>
+					<li data-theme="g">
+						<a href="/home/maintenance_log/<%= mRequest.id %>" data-transition="slide">
+							<%= mRequest.status + " " + mRequest.maintenanceRequestDate.strftime("%m/%d/%y") %>
+						</a>
+					</li>
+				<% end %>
+			<% end %>
+			
+		<% else %>
+		
+			<li data-theme="d">
+				You have not submitted any maintenance requests.
+			</li>
+			
+		<% end %>
+		
+	</ul>
+</div>

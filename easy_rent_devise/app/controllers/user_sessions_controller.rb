@@ -17,7 +17,7 @@ class UserSessionsController < Devise::SessionsController
       end
       super
     else
-      render :new
+      render :new, alert: "Invalid tenant credentials."
     end
   end
   
