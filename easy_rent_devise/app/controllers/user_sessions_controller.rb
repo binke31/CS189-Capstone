@@ -8,7 +8,7 @@ class UserSessionsController < Devise::SessionsController
     super
   end
   
-  def create
+  /def create
     userHash = params[:user]
     s = CapstoneSession.create({:email => userHash[:email], :password => userHash[:password]})
     if s.persisted?
@@ -19,7 +19,7 @@ class UserSessionsController < Devise::SessionsController
     else
       render :new, alert: "Invalid tenant credentials."
     end
-  end
+  end/
   
   def destroy
     session.clear

@@ -5,19 +5,19 @@
 			Payment Date
 		</li>
 		<li data-theme="c">
-			<%= @rentPayment.paid_on %>
+			<%= @rentPayment.paymentDate.strftime("%m/%d/%y") %>
 		</li>
 		<li data-role="list-divider" role="heading">
 			Payment Amount
 		</li>
 		<li data-theme="c">
-			<%= "$" + @rentPayment.amount.to_s %>
+			<%= "$" + @rentPayment.paymentAmount.to_s %>
 		</li>
 		<li data-role="list-divider" role="heading">
 			Paid By
 		</li>
 		<li data-theme="c">
-			<%= @rentPayment.user_name %>
+			<%= @rentPayment.firstName + " " + @rentPayment.lastName %>
 		</li>
 	</ul>
 </div>
