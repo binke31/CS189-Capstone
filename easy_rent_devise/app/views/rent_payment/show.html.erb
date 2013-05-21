@@ -1,46 +1,23 @@
-<!-- My Rent Info Page -->
+<!-- Rent Payment View -->
 <div data-role="content">
-<div>
-<p>
-<b>
-My Property:
-<br>
-</b>
-</p>
-<p>
-<b>
-&nbsp;&nbsp;&nbsp;&nbsp; Property Info
-<br>
-</b>
-</p>
-<p>
-<b>
-Current Balance:
-<br>
-</b>
-</p>
-<p>
-<b>
-&nbsp;&nbsp;&nbsp;&nbsp; $XXX.XX
-<br>
-</b>
-</p>
-<p>
-<b>
-Last Submitted Payment Date:
-<br>
-</b>
-</p>
-<p>
-<b>
-&nbsp;&nbsp;&nbsp;&nbsp; MM/DD/YY
-<br>
-</b>
-</p>
-<p>
-<b>
-<br>
-</b>
-</p>
-</div>
+	<ul data-role="listview" data-divider-theme="b" data-inset="true">
+		<li data-role="list-divider" role="heading">
+			Payment Date
+		</li>
+		<li data-theme="c">
+			<%= @rentPayment.paid_on %>
+		</li>
+		<li data-role="list-divider" role="heading">
+			Payment Amount
+		</li>
+		<li data-theme="c">
+			<%= "$" + @rentPayment.amount.to_s %>
+		</li>
+		<li data-role="list-divider" role="heading">
+			Paid By
+		</li>
+		<li data-theme="c">
+			<%= @rentPayment.user_name %>
+		</li>
+	</ul>
 </div>

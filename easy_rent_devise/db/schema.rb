@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407211004) do
+ActiveRecord::Schema.define(:version => 20130520004851) do
 
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
@@ -21,6 +21,31 @@ ActiveRecord::Schema.define(:version => 20130407211004) do
     t.string   "writtenRequest"
     t.string   "userFirstName"
     t.string   "userLastName"
+    t.string   "status"
+    t.integer  "user_id"
+  end
+
+  create_table "notification_settings", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "phoneNumber"
+    t.string   "textMessages"
+    t.string   "emails"
+    t.string   "rentOneDay"
+    t.string   "rentOneWeek"
+    t.string   "general"
+    t.string   "maintenanceUpdates"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.datetime "sendNextRentAt"
+    t.string   "rentInterval"
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "message"
+    t.string   "type"
   end
 
   create_table "rent_payments", :force => true do |t|
@@ -34,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130407211004) do
     t.string   "savePayment"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -52,10 +78,9 @@ ActiveRecord::Schema.define(:version => 20130407211004) do
     t.integer  "failed_attempts",        :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
+    t.integer  "rentDueDay"
+    t.string   "firstName"
+    t.string   "lastName"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

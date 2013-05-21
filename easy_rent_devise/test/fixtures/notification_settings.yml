@@ -1,0 +1,50 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  id: 1
+  user_id: 1
+  phoneNumber: ""
+  textMessages: "off"
+  emails: "off"
+  rentOneDay: "off"
+  rentOneWeek: "off"
+  general: "off"
+  maintenanceUpdates: "off"
+  sendNextRentAt: NULL
+  rentInterval: ""
+  created_at: 2013-05-01
+  updated_at: 2013-05-01
+  
+two:
+  id: 2
+  user_id: 2
+  phoneNumber: ""
+  textMessages: "off"
+  emails: "on"
+  rentOneDay: "on"
+  rentOneWeek: "off"
+  general: "off"
+  maintenanceUpdates: "off"
+  sendNextRentAt: NULL
+  rentInterval: ""
+  created_at: 2013-05-01
+  updated_at: 2013-05-01
+  
+three:
+    id: 3
+    user_id: 3
+    phoneNumber: ""
+    textMessages: "off"
+    emails: "on"
+    rentOneDay: "on"
+    rentOneWeek: "off"
+    general: "off"
+    maintenanceUpdates: "off"
+    sendNextRentAt: NULL
+    rentInterval: ""
+    created_at: 2013-05-01
+    updated_at: 2013-05-01
