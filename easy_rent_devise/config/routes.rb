@@ -23,16 +23,21 @@ EasyRentDevise::Application.routes.draw do
 	
   get '/home/pay_rent', to: 'rent_payment#new'
   post '/home/pay_rent', to: 'rent_payment#create'
+  get '/home/payment_history', to: 'rent_payment#index'
+  get '/home/payment_history/:id', to: 'rent_payment#show'
 	
-	get '/home/my_info', to: 'rent_payment#show'
-    
-  get '/home/payment_history', to: 'payment_history#show'
+	get '/home/my_info', to: 'property_info#show'
   
   get '/home/maintenance_request', to: 'maintenance_request#new'
   post '/home/maintenance_request', to: 'maintenance_request#create'
-    
-  get '/home/maintenance_log', to: 'maintenance_log#show'
+  get '/home/maintenance_log', to: 'maintenance_request#index'
+  get '/home/maintenance_log/:id', to: 'maintenance_request#show'
     
   get '/settings', to: 'settings_home#show'
+  
+  get '/settings/notification_settings', to: 'notification_settings#edit'
+  put '/settings/notification_settings', to: 'notification_settings#update'
+  
+  get '/home/notifications', to: 'notification#show'
 
 end

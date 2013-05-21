@@ -7,6 +7,8 @@ one:
   userFirstName:
   userLastName: 
   maintenanceRequestDate: 2013-04-15 19:35:10
+  status: "Submitted"
+  user_id: 1
 
 two:
   id: 2
@@ -15,3 +17,5 @@ two:
   userFirstName:
   userLastName: 
   maintenanceRequestDate: 
+  status: 
+  user_id: 

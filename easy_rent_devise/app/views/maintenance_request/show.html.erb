@@ -1,0 +1,40 @@
+<div data-role="content">
+	<ul data-role="listview" data-divider-theme="b" data-inset="true">
+		
+		<li data-role="list-divider" role="heading">
+			Issue
+		</li>
+		<li data-theme="c">
+			<%= @mainRequest.writtenRequest %>
+		</li>
+		
+		<li data-role="list-divider" role="heading">
+			Submitted on
+		</li>
+		<li data-theme="c">
+			<%= @mainRequest.maintenanceRequestDate.strftime("%m/%d/%y") %>
+		</li>
+		
+		<li data-role="list-divider" role="heading">
+			Requested by
+		</li>
+		<li data-theme="c">
+			<%= @mainRequest.userFirstName + " " + @mainRequest.userLastName %>
+		</li>
+		
+		<li data-role="list-divider" role="heading">
+			Status
+		</li>
+		<% if @mainRequest.status == "Fixed" %>
+			<li data-theme="f">
+				Fixed
+			</li>
+		<% else %>
+			<li data-theme="e">
+				<%= @mainRequest.status %>
+			</li>
+		<% end %>
+
+		
+	</ul>
+</div>

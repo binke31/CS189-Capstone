@@ -11,6 +11,17 @@ gem 'devise'
 # gives error_messages and error_messages_for
 gem 'dynamic_form'
 
+# for cron jobs
+gem 'whenever', require: false
+
+# for Twilio
+gem 'twilio-ruby'
+
+# for ActiveResource
+gem 'activeresource', :require => 'active_resource'
+
+# for render :action, notice/alert/error: "Message"
+gem "flash_render", "~> 1.0.1"
 
 # Gems used only for assets and not required
 # in production environments by default.

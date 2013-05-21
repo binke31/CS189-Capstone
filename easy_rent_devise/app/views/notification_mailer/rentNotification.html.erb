@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>This is an automatically generated email. Do not reply to this message.</h1>
+		<% if @interval == "week"%>
+	    <h2>
+	      Your rent is due in one week.
+	    </h2>
+		<% else %>
+			<h2>
+				Your rent is due tomorrow.
+			</h2>
+		<% end %>
+  </body>
+</html>

@@ -6,11 +6,21 @@
 #
 one:
     id: 1
-    email: chris@horukmail.com
+    email: andrew.mutz+456@appfolio.com
 # corresponds to password of 12345678
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 13
 
 two:
     id: 2
-    email: rluhar1990@gmail.com
+    email: capstone@appfolio.com
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 10
+    
+three:
+    id: 3
+    email: chris@horukmail.com
+    encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 20
+    firstName: Chris
+    lastName: Horuk
