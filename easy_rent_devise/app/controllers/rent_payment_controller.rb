@@ -1,6 +1,6 @@
 class RentPaymentController < ApplicationController
 
-  layout "pageview"
+  layout :resolve_layout
 
   #GET /home/pay_rent
   def new
@@ -24,8 +24,25 @@ class RentPaymentController < ApplicationController
     end
   end
 	
+	#GET /home/payment_history
+	def index
+	  @rentPayments = CapstonePayment.find(:all, :params => { :email_address => "blah@blah.com" })
+=begin
+	  @userPayments = []
+	  @roommatePayments = []
+	  rentPayments.each do |payment|
+	    if payment.remote_payment.user_name == (current_user.firstName + " " + current_user.lastName)
+	      @userPayments << payment
+	    else
+	      @roommatePayments << payment
+	    end
+	  end
+=end
+	end
+	
+	#GET /home/payment_history/<id>
 	def show
-		# stub
+		@rentPayment = CapstonePayment.find(:first, :params => { :confirmation => params[:id] })
 	end
   
   def sendPaymentToAppfolio(email, payment)
@@ -42,5 +59,15 @@ class RentPaymentController < ApplicationController
       :save_payment => payment.savePayment
     })
   end
+  
+  private
+    def resolve_layout
+      case action_name
+      when 'show'
+        'nestedPageview'
+      else
+        'pageview'
+      end
+    end
 
 end

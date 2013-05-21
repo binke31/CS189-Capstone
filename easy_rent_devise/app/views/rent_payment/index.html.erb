@@ -1,0 +1,40 @@
+<!-- Payment History (R) -->
+<div data-role="content">
+	<ul data-role="listview" data-divider-theme="b" data-inset="true">
+		
+		<% if @rentPayments.size > 0 %>
+		
+			<li data-role="list-divider" role="heading">
+				Your Payments
+			</li>
+			<% @rentPayments.each do |payment| %>
+				<li data-theme="c">
+					<a href="/home/payment_history/<%= payment.remote_payment.order_number %>" data-transition="slide">
+						<%= "$" + payment.remote_payment.amount.to_s + " - " + payment.remote_payment.paid_on %>
+					</a>
+				</li>
+			<% end %>
+			
+		<% else %>
+		
+			<li data-theme="c">
+				You have no rent payments.
+			</li>
+			
+		<% end %>
+		
+		<!--li data-theme="c">
+			<a href="#page21" data-transition="slide">
+				$XXX.XX - MM/DD/YY
+			</a>
+		</li>
+		<li data-role="list-divider" role="heading">
+			Housemates' Payments
+		</li>
+		<li data-theme="c">
+			<a href="#page21" data-transition="slide">
+				$XXX.XX - Name, MM/DD/YY
+			</a>
+		</li-->
+	</ul>
+</div>

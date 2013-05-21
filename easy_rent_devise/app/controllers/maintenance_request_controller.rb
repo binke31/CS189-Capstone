@@ -1,6 +1,6 @@
 class MaintenanceRequestController < ApplicationController
 
-	layout "pageview"
+	layout :resolve_layout
 
     #GET /home/maintenance_request
     def new
@@ -17,8 +17,19 @@ class MaintenanceRequestController < ApplicationController
  	      userFirstName: current_user.firstName,
  	      userLastName: current_user.lastName
  	    }
+ 	    permission = @mainRequest.permissionToEnter == "Yes" ? '1' : '0'
+ 	    sendMaintenanceToAppfolio(@mainRequest.writtenRequest, permission)
+ 	    puts permission
  	    @mainRequest.save
  	    redirect_to "/home/", notice: "Maintenance request successfully submitted!"
+    end
+    
+    def sendMaintenanceToAppfolio(description, permission)
+      CapstoneMaintenance.create(
+        :email => current_user.email,
+        :tenant_description => description,
+        :permission_to_enter => permission
+      )
     end
     
     #GET /home/maintenance_log
@@ -30,5 +41,15 @@ class MaintenanceRequestController < ApplicationController
     def show
       @mainRequest = MaintenanceRequest.find(params[:id])
     end
+    
+    private
+      def resolve_layout
+        case action_name
+        when 'show'
+          'nestedPageview'
+        else
+          'pageview'
+        end
+      end
     
 end 
