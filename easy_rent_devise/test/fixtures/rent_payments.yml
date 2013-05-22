@@ -10,7 +10,7 @@ one:
   lastName: "Horuk"
   accountType: "checking"
   savePayment: 
-  user_id: 1
+  user_id: 
 
 two:
   id: 2

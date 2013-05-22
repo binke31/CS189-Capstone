@@ -6,21 +6,49 @@
 #
 one:
     id: 1
-    email: andrew.mutz+456@appfolio.com
+    email: test1@appfolio.com
 # corresponds to password of 12345678
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
     rentDueDay: 13
+    firstName: Test
+    lastName: One
 
 two:
     id: 2
-    email: capstone@appfolio.com
+    email: test2@appfolio.com
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
     rentDueDay: 10
+    firstName: Test
+    lastName: Two
     
 three:
     id: 3
-    email: chris@horukmail.com
+    email: test3@appfolio.com
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
     rentDueDay: 20
-    firstName: Chris
-    lastName: Horuk
+    firstName: Test
+    lastName: Three
+    
+four:
+    id: 4
+    email: test4@appfolio.com
+    encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 20
+    firstName: Test
+    lastName: Four
+    
+five:
+    id: 5
+    email: test5@appfolio.com
+    encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 20
+    firstName: Test
+    lastName: Five
+    
+six:
+    id: 6
+    email: test6@appfolio.com
+    encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
+    rentDueDay: 20
+    firstName: Test
+    lastName: Six

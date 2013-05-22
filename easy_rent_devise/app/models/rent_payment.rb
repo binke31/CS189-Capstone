@@ -7,7 +7,7 @@ class RentPayment < ActiveRecord::Base
   validates_presence_of :paymentAmount, :routingNumber, :accountNumber, :paymentDate, :firstName, :lastName, :accountType
     
   validates :routingNumber, length: { is: 9 }, numericality: { only_integer: true }
-  validate :valid_routing_check_sum?
+  #validate :valid_routing_check_sum?
     
   validates :accountNumber, numericality: { only_integer: true }
     

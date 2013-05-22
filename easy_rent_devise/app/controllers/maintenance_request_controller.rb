@@ -19,8 +19,12 @@ class MaintenanceRequestController < ApplicationController
  	    }
  	    #permission = @mainRequest.permissionToEnter == "Yes" ? '1' : '0'
  	    #sendMaintenanceToAppfolio(@mainRequest.writtenRequest, permission)
- 	    @mainRequest.save
- 	    redirect_to "/home/", notice: "Maintenance request successfully submitted!"
+ 	    if @mainRequest.valid?
+ 	      @mainRequest.save
+ 	      redirect_to "/home/", notice: "Maintenance request successfully submitted!"
+ 	    else
+ 	      render :new
+ 	    end
     end
     
     def sendMaintenanceToAppfolio(description, permission)
