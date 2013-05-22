@@ -17,7 +17,7 @@ class RentPaymentController < ApplicationController
       #@rentPayment.paymentDate = "20#{date[2]}/#{date[0]}/#{date[1]} #{time.hour}:#{time.min}:#{time.sec} #{time.zone}".to_datetime
 	  if @rentPayment.valid?
       @rentPayment.save
-      sendPaymentToAppfolio(current_user.email, @rentPayment)
+      #sendPaymentToAppfolio(current_user.email, @rentPayment)
       redirect_to "/home/", notice: "Rent payment successfully submitted!"
     else
       render :new
@@ -26,7 +26,8 @@ class RentPaymentController < ApplicationController
 	
 	#GET /home/payment_history
 	def index
-	  @rentPayments = CapstonePayment.find(:all, :params => { :email_address => "blah@blah.com" })
+	  @rentPayments = current_user.rent_payments.all
+	  #@rentPayments = CapstonePayment.find(:all, :params => { :email_address => "blah@blah.com" })
 =begin
 	  @userPayments = []
 	  @roommatePayments = []
@@ -42,7 +43,8 @@ class RentPaymentController < ApplicationController
 	
 	#GET /home/payment_history/<id>
 	def show
-		@rentPayment = CapstonePayment.find(:first, :params => { :confirmation => params[:id] })
+		@rentPayment = RentPayment.find(params[:id])
+		#@rentPayment = CapstonePayment.find(:first, :params => { :confirmation => params[:id] })
 	end
   
   def sendPaymentToAppfolio(email, payment)

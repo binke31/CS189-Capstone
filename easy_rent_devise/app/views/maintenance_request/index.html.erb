@@ -5,9 +5,9 @@
 			Maintenance Log
 		</li>
 		
-		<% if current_user.maintenance_requests.size > 0 %>
+		<% if @maintenanceRequests.size > 0 %>
 		
-			<% current_user.maintenance_requests.each do |mRequest| %>
+			<% @maintenanceRequests.each do |mRequest| %>
 				<% if mRequest.status == "Fixed" %>
 					<li data-theme="f">
 						<a href="/home/maintenance_log/<%= mRequest.id %>" data-transition="slide">

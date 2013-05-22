@@ -19,7 +19,7 @@ class MaintenanceRequestController < ApplicationController
  	    }
  	    if @mainRequest.valid?
  	      permission = @mainRequest.permissionToEnter == "Yes" ? '1' : '0'
- 	      sendMaintenanceToAppfolio(@mainRequest.writtenRequest, permission)
+ 	      #sendMaintenanceToAppfolio(@mainRequest.writtenRequest, permission)
  	      @mainRequest.save
  	      redirect_to "/home/", notice: "Maintenance request successfully submitted!"
  	    else
@@ -37,7 +37,7 @@ class MaintenanceRequestController < ApplicationController
     
     #GET /home/maintenance_log
     def index
-      # stub
+      @maintenanceRequests = current_user.maintenance_requests.all
     end
     
     #GET /home/maintenance_log/<id>

@@ -14,14 +14,15 @@ class RentPayment < ActiveRecord::Base
   validates :accountType, format: { with: /\A(checking)|(savings)\z/ }
 
   def routing_check_sum
-    routingNumber = routingNumber.to_s
-    return nil unless routingNumber.match(/^[\d]{8,9}$/)
+    rNumber = routingNumber.to_s
+    return nil unless rNumber.match(/^[\d]{8,9}$/)
 
-    digits = routingNumber.split(//)
+    digits = rNumber.split(//)
     part1 = (digits[0].to_i + digits[3].to_i + digits[6].to_i) * 3
     part2 = (digits[1].to_i + digits[4].to_i + digits[7].to_i) * 7
     part3 = digits[2].to_i + digits[5].to_i
     checkdigit = (10 - ((part1 + part2 + part3) % 10)) % 10
+    puts checkdigit.to_s
     checkdigit.to_s
   end
 

@@ -9,8 +9,10 @@
 			</li>
 			<% @rentPayments.each do |payment| %>
 				<li data-theme="c">
-					<a href="/home/payment_history/<%= payment.remote_payment.order_number %>" data-transition="slide">
-						<%= "$" + payment.remote_payment.amount.to_s + " - " + payment.remote_payment.paid_on %>
+					<a href="/home/payment_history/<%= payment.id %>" data-transition="slide">
+					<!-- a href="/home/payment_history/%= payment.remote_payment.order_number %>" data-transition="slide" -->
+						<!-- %= "$" + payment.remote_payment.amount.to_s + " - " + payment.remote_payment.paid_on % -->
+						<%= "$" + payment.paymentAmount.to_s + " - " + payment.paymentDate.strftime("%m/%d/%y") %>
 					</a>
 				</li>
 			<% end %>
