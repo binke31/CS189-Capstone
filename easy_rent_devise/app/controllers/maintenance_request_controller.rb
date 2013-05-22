@@ -5,6 +5,14 @@ class MaintenanceRequestController < ApplicationController
     #GET /home/maintenance_request
     def new
       @mainRequest = MaintenanceRequest.new
+=begin
+This is used to test the sending of maintenance requests without appfolio backend
+      maintenanceRequest = current_user.maintenance_requests.first
+      if !maintenanceRequest.nil?
+        maintenanceRequest.status = "Fixed"
+        maintenanceRequest.save
+      end
+=end
     end
 
     #POST /home/maintenance_request

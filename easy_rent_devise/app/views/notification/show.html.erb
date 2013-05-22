@@ -18,13 +18,16 @@
         <li data-role="list-divider" role="heading">
             Maintenance
         </li>
-        <li data-theme="c">
-            A repair for your screen door has been scheduled for Tuesday, Feb 19th.
-            (2/18/13)
-        </li>
-        <li data-theme="c">
-            Power will be turned off from 1:00 PM to 3:00 PM on Wednesday, Fed 20th
-            as part of general maintenance. (2/12/13)
-        </li>
+				<% if current_user.maintenance_notifications.size > 0 %>
+					<% current_user.maintenance_notifications.each do |notification| %>
+						<li data-theme="c">
+		            <%= notification.message %>
+		        </li>
+					<% end %>
+				<% else %>
+					<li data-theme="c">
+	            No maintenance notifications.
+	        </li>
+				<% end %>
     </ul>
 </div>

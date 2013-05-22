@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :maintenance_requests, dependent: :destroy
   has_many :rent_payments, dependent: :destroy
   has_many :rent_notifications, dependent: :destroy
+  has_many :maintenance_notifications, dependent: :destroy
   has_one :notification_settings, dependent: :destroy
   
   # Include default devise modules. Others available are:

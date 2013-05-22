@@ -13,18 +13,24 @@ class MaintenanceRequest < ActiveRecord::Base
   
   def sendMaintenanceNotification
     if user.notification_settings.maintenanceUpdates == "on"
+      sentNotification = false
+      message = "The status of your maintenance request that was submitted on " + 
+                maintenanceRequestDate.strftime("%m/%d/%y") + " by " + userFirstName + " " +
+                userLastName + " has changed to " + status + "."
       
       if user.notification_settings.emails == "on"
         NotificationMailer.maintenanceNotification(user.email, id).deliver
+        sentNotification = true
       end
       
       if user.notification_settings.textMessages == "on"
-        sendTextMessage(user.notification_settings.phoneNumber, "The status of your maintenance request that was submitted on " + 
-                                                                maintenanceRequestDate.strftime("%m/%d/%y") + " by " + userFirstName + " " +
-                                                                userLastName + " has changed to " + status + "."
-                       )
+        sendTextMessage(user.notification_settings.phoneNumber, message)
+        sentNotification = true
       end
       
+      if sentNotification
+        user.maintenance_notifications.create(message: message)
+      end
     end
   end
 
