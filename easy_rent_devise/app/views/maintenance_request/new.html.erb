@@ -2,6 +2,7 @@
 
 <div data-role="content">
 	<%= form_for(@mainRequest, :url => { action: "create" }) do |f| %>
+	<%= f.error_messages header_message: "Invalid Maintenance Request!", message: "You'll need to fix the following fields:" %>
 
 		<div data-role="fieldcontain">
 			<fieldset data-role="controlgroup">

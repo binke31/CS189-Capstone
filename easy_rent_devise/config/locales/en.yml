@@ -6,10 +6,13 @@ en:
   activerecord:
     attributes:
       rent_payment:
-        paymentAmount: "Payment Amount"
-        routingNumber: "Routing Number"
-        accountNumber: "Account Number"
-        paymentDate: "Payment Date"
-        firstName: "First Name"
-        lastName: "Last Name"
-        accountType: "Account Type"
+        paymentAmount: "Payment amount"
+        routingNumber: "Routing number"
+        accountNumber: "Account number"
+        paymentDate: "Payment date"
+        firstName: "First name"
+        lastName: "Last name"
+        accountType: "Account type"
+      maintenance_request:
+        writtenRequest: "Problem description"
+        permissionToEnter: "Permission to enter"
