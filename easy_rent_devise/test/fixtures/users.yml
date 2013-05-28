@@ -10,12 +10,18 @@ one:
 # corresponds to password of 12345678
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
     rentDueDay: 13
+    firstName: Andrew
+    lastName: Mutz
+    property_id: 1
 
 two:
     id: 2
     email: capstone@appfolio.com
     encrypted_password: $2a$10$5ze3qb2J/FUVQSHjbhRqEO28pAx84KZkP.pv3w3JpNRw.tEhKENru
     rentDueDay: 10
+    firstName: Capstone
+    lastName: Test
+    property_id: 1
     
 three:
     id: 3
@@ -24,3 +30,5 @@ three:
     rentDueDay: 20
     firstName: Chris
     lastName: Horuk
+    property_id: 1
+    currentBalance: 0

@@ -27,6 +27,8 @@ EasyRentDevise::Application.routes.draw do
   get '/home/payment_history/:id', to: 'rent_payment#show'
 	
 	get '/home/my_info', to: 'property_info#show'
+	get '/settings/rent_division_settings', to: 'property_info#edit'
+	put '/settings/rent_division_settings', to: 'property_info#update'
   
   get '/home/maintenance_request', to: 'maintenance_request#new'
   post '/home/maintenance_request', to: 'maintenance_request#create'

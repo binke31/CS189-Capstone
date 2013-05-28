@@ -1,0 +1,54 @@
+<!-- Rent Settings -->
+<div data-role="content">
+	<h3>
+		Rent Settings
+	</h3>
+	<ul data-role="listview" data-divider-theme="b" data-inset="true">
+		<li data-role="list-divider" role="heading">
+			Total Monthly Rent
+		</li>
+		<li data-theme="c">
+			$<%= @property.monthlyPayment %>
+		</li>
+		<li data-role="list-divider" role="heading">
+			Rent Breakdown
+		</li>
+		<li data-theme="c">
+			<% if @property.getUserMonthlyPaymentAmount(current_user.getFullName()) == "null" %>
+				You haven't configured this yet.
+			<% else %>
+				You selected to pay $<%= @property.getUserMonthlyPaymentAmount(current_user.getFullName()) %>.
+			<% end %>
+		</li>
+		<% @roomates.each do |roomate| %>
+			<li data-theme="c">
+			<% if @property.getUserMonthlyPaymentAmount(roomate.getFullName()) == "null" %>
+				<%= roomate.getFullName() %> hasn't configured this yet.
+			<% else %>
+				<%= roomate.getFullName() %> selected to pay $<%= @property.getUserMonthlyPaymentAmount(roomate.getFullName()) %>.
+			<% end %>
+			</li>
+		<% end %>
+		<!--li data-theme="c">
+			[Insert Roomate Name Here] - $XXX.XX
+		</li>
+		<li data-theme="c">
+			[Insert Roomate Name Here] hasn't configured this yet.
+		</li-->
+		<li data-role="list-divider" role="heading">
+			Difference From Monthly Rent
+		</li>
+		<li data-theme="c">
+			$<%= @property.monthlyPayment - @property.getTotalRentAccountedFor() %>
+		</li>
+	</ul>
+	<%= form_for(@property, :url => { action: "update" }) do |f| %>
+		<div data-role="fieldcontain">
+			<label for="textinput23">
+				Amount You're Responsible For:
+			</label>
+			<input name="rentAmount" id="textinput23" value="" type="text">
+		</div>
+		<input data-theme="b" value="Save Changes" type="submit">
+	<% end %>
+</div>

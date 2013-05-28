@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520004851) do
+ActiveRecord::Schema.define(:version => 20130528035824) do
 
   create_table "maintenance_requests", :force => true do |t|
     t.datetime "created_at",             :null => false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(:version => 20130520004851) do
     t.string   "type"
   end
 
+  create_table "properties", :force => true do |t|
+    t.string   "address"
+    t.integer  "monthlyPayment"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "rentDivisionEnabled"
+    t.string   "rentDivisions"
+  end
+
   create_table "rent_payments", :force => true do |t|
     t.string   "paymentAmount"
     t.integer  "routingNumber"
@@ -57,9 +66,10 @@ ActiveRecord::Schema.define(:version => 20130520004851) do
     t.string   "lastName"
     t.string   "accountType"
     t.string   "savePayment"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
+    t.string   "confirmationNumber"
   end
 
   create_table "users", :force => true do |t|
@@ -81,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20130520004851) do
     t.integer  "rentDueDay"
     t.string   "firstName"
     t.string   "lastName"
+    t.integer  "property_id"
+    t.string   "currentBalance"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

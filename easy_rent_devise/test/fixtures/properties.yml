@@ -4,8 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
+one: 
+    id: 1
+    address: "6920 Whittier Drive #132, Goleta, CA 93117"
+    monthlyPayment: 2000
+    rentDivisionEnabled: "no"
+    rentDivisions: "Chris Horuk:700/Andrew Mutz:700/Capstone Test:500"
+
 two: {}
 #  column: value

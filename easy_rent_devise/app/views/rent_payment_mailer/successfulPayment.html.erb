@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <em>This is an automatically generated email. Do not reply to this message.</em>
+		
+		<p>Payment Details:</p>
+		<p>Amount Paid: <%= "$" + @payment.paymentAmount.to_s %></p>
+		<p>Payment Date: <%= @payment.paymentDate.strftime("%m/%d/%y") %></p>
+		<p>Confirmation Number: <%= @payment.confirmationNumber %></p>
+		
+  </body>
+</html>

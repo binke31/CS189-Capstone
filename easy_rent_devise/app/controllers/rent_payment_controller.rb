@@ -9,15 +9,18 @@ class RentPaymentController < ApplicationController
 	
   #POST /home/pay_rent
   def create
-	  # params[:rentPayment] should have all the form input
 	  @rentPayment = current_user.rent_payments.new(params[:rentPayment])
+	  
       # Following commented code would add the current time (in hours,mins,secs) to the paymentDate field of @rentPayment
       #time = Time.now
       #date = params[:rentPayment][:paymentDate].split("/")
       #@rentPayment.paymentDate = "20#{date[2]}/#{date[0]}/#{date[1]} #{time.hour}:#{time.min}:#{time.sec} #{time.zone}".to_datetime
+      
 	  if @rentPayment.valid?
       @rentPayment.save
       #sendPaymentToAppfolio(current_user.email, @rentPayment)
+      RentPaymentMailer.successfulPayment(current_user.email, @rentPayment.id).deliver
+      current_user.updateBalance!(@rentPayment.paymentAmount.to_f, @rentPayment.paymentDate)
       redirect_to "/home/", notice: "Rent payment successfully submitted!"
     else
       render :new

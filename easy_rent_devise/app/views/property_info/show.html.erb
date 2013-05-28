@@ -5,25 +5,33 @@
 			My Property
 		</li>
 		<li data-theme="c">
-			1234 Random Street
+			<%= @property.address %>
 		</li>
-		<li data-theme="c">
+		<!--li data-theme="c">
 			Goleta, CA
 		</li>
 		<li data-theme="c">
 			93117
-		</li>
+		</li-->
 		<li data-role="list-divider" role="heading">
 			Current Balance
 		</li>
 		<li data-theme="c">
-			$700.00
+			$<%= current_user.currentBalance %>
 		</li>
 		<li data-role="list-divider" role="heading">
 			Total Monthly Rent
 		</li>
 		<li data-theme="c">
-			$700.00
+			<%= "$" + @property.monthlyPayment.to_s %>
 		</li>
+		<% if @property.rentDivisionEnabled == "yes" %>
+		<li data-role="list-divider" role="heading">
+			Amount Your Responsible For
+		</li>
+		<li data-theme="c">
+			$<%= @property.getUserMonthlyPaymentAmount(current_user.getFullName()) %>
+		</li>
+		<% end %>
 	</ul>
 </div>

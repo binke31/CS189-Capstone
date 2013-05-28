@@ -1,8 +1,12 @@
 class RentPayment < ActiveRecord::Base
   
+  before_save :generateUniqueConfirmationNumber
+  
   belongs_to :user
 
   attr_accessible :paymentAmount, :routingNumber, :accountNumber, :paymentDate, :firstName, :lastName, :accountType, :savePayment
+  
+  attr_protected :confirmationNumber
 
   validates_presence_of :paymentAmount, :routingNumber, :accountNumber, :paymentDate, :firstName, :lastName, :accountType
     
@@ -32,6 +36,13 @@ class RentPayment < ActiveRecord::Base
       errors.add(:routingNumber, "has invalid format")
     elsif (correct_checksum != routingNumber.to_s.split(//)[8])
       errors.add(:routingNumber, "has invalid format")
+    end
+  end
+  
+  def generateUniqueConfirmationNumber
+    self.confirmationNumber = loop do
+      random_number = SecureRandom.urlsafe_base64
+      break random_number unless RentPayment.where(confirmationNumber: random_number).exists?
     end
   end
 
