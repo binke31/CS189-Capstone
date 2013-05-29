@@ -26,7 +26,7 @@ This is used to test the sending of maintenance requests without appfolio backen
  	      userLastName: current_user.lastName
  	    }
  	    if @mainRequest.valid?
- 	      permission = @mainRequest.permissionToEnter == "Yes" ? '1' : '0'
+ 	      #permission = @mainRequest.permissionToEnter == "Yes" ? '1' : '0'
  	      #sendMaintenanceToAppfolio(@mainRequest.writtenRequest, permission)
  	      @mainRequest.save
  	      redirect_to "/home/", notice: "Maintenance request successfully submitted!"
@@ -45,7 +45,12 @@ This is used to test the sending of maintenance requests without appfolio backen
     
     #GET /home/maintenance_log
     def index
-      @maintenanceRequests = current_user.maintenance_requests.all
+      @maintenanceRequests = current_user.maintenance_requests
+      roomates = current_user.property.tenants.select{ |tenant| tenant.email != current_user.email }
+      roomates.each do |tenant|
+        @maintenanceRequests << tenant.maintenance_requests
+      end
+      @maintenanceRequests.sort_by!{ |request| request.maintenanceRequestDate }.reverse!
     end
     
     #GET /home/maintenance_log/<id>

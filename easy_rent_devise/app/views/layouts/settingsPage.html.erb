@@ -55,7 +55,7 @@
 	
 	<div data-role="page" data-theme="b" id="page4" data-url="<%= request.path %>">
 	      <div data-theme="b" data-role="header">
-			  <a data-role="button" data-theme="b" href="<%= request.referer %>"
+			  <a data-role="button" data-theme="b" href="<%= (shouldGoBackToHome?(URI(request.referer).path)) ? "/home" : request.referer %>"
 			   data-icon="back" data-iconpos="left" class="ui-btn-left">
 			      Back
 			  </a>

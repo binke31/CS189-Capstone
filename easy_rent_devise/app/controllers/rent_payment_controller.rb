@@ -29,7 +29,14 @@ class RentPaymentController < ApplicationController
 	
 	#GET /home/payment_history
 	def index
-	  @rentPayments = current_user.rent_payments.all
+	  @myRentPayments = current_user.rent_payments
+	  @roomateRentPayments = []
+	  roomates = current_user.property.tenants.select{ |tenant| tenant.email != current_user.email }
+	  roomates.each do |tenant|
+	    @roomateRentPayments += tenant.rent_payments
+	  end
+	  @myRentPayments.sort_by!{ |payment| payment.paymentDate }.reverse!
+	  @roomateRentPayments.sort_by!{ |payment| payment.paymentDate }.reverse!
 	  #@rentPayments = CapstonePayment.find(:all, :params => { :email_address => "blah@blah.com" })
 =begin
 	  @userPayments = []

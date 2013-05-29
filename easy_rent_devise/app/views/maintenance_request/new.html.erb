@@ -9,7 +9,11 @@
 				<label for="textarea1">
 					Please describe the problem:
 				</label>
-				<textarea name="mainRequest[writtenRequest]" id="writtenRequest" placeholder="1000 characters or less please" value=""></textarea>
+				<% if @mainRequest.writtenRequest %>
+					<textarea name="mainRequest[writtenRequest]" id="writtenRequest"><%= @mainRequest.writtenRequest %></textarea>
+				<% else %>
+					<textarea name="mainRequest[writtenRequest]" id="writtenRequest" placeholder="1000 characters or less please" value=""></textarea>
+				<% end %>
 			</fieldset>
 		</div>
 

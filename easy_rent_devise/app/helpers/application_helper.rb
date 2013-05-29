@@ -28,5 +28,13 @@ module ApplicationHelper
     # no other paths yet
     false
   end
+  
+  def shouldGoBackToHome?(path)
+    if path == settings_notification_settings_path || path == edit_user_registration_path || path == settings_rent_division_settings_path
+      true
+    else
+      false
+    end
+  end
     
 end

@@ -2,12 +2,12 @@
 <div data-role="content">
 	<ul data-role="listview" data-divider-theme="b" data-inset="true">
 		
-		<% if @rentPayments.size > 0 %>
+		<li data-role="list-divider" role="heading">
+			Your Payments
+		</li>
+		<% if @myRentPayments.size > 0 %>
 		
-			<li data-role="list-divider" role="heading">
-				Your Payments
-			</li>
-			<% @rentPayments.each do |payment| %>
+			<% @myRentPayments.each do |payment| %>
 				<li data-theme="c">
 					<a href="/home/payment_history/<%= payment.id %>" data-transition="slide">
 					<!-- a href="/home/payment_history/%= payment.remote_payment.order_number %>" data-transition="slide" -->
@@ -21,6 +21,29 @@
 		
 			<li data-theme="c">
 				You have no rent payments.
+			</li>
+			
+		<% end %>
+		
+		<li data-role="list-divider" role="heading">
+			Housemates' Payments
+		</li>
+		<% if @roomateRentPayments.size > 0 %>
+		
+			<% @roomateRentPayments.each do |payment| %>
+				<li data-theme="c">
+					<a href="/home/payment_history/<%= payment.id %>" data-transition="slide">
+					<!-- a href="/home/payment_history/%= payment.remote_payment.order_number %>" data-transition="slide" -->
+						<!-- %= "$" + payment.remote_payment.amount.to_s + " - " + payment.remote_payment.paid_on % -->
+						<%= "$" + payment.paymentAmount.to_s + " - " + payment.paymentDate.strftime("%m/%d/%y") %>
+					</a>
+				</li>
+			<% end %>
+			
+		<% else %>
+		
+			<li data-theme="c">
+				Your roommates have no rent payments.
 			</li>
 			
 		<% end %>
